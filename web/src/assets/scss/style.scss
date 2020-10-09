@@ -1,3 +1,5 @@
+@import './variables';
+
 //reset
 
 *{
@@ -19,16 +21,6 @@ a{
 }
 
 //colors
-$colors:(
-    "primary":#db9e3f,
-    "white":#fff,
-    "light":#f9f9f9,
-    "grey":#999,
-    "grey-1":#666,
-    "dark-1":#333,
-    "dark":#222,
-    "black":#000
-);
 @each $colorKey,$color in $colors {
     .text-#{$colorKey}{
         color: $color;
@@ -43,20 +35,10 @@ $colors:(
 
 @each $var in (left,center,right) {
     .text-#{$var}{
-        text-align: $var;
+        text-align: $var !important;
     }
 }
 
-// font size 
-$base-font-size:1rem;
-$font-sizes:(
-    xxs:0.6154, //8px
-    xs:0.7692, //10px
-    sm:0.9231, //12px
-    md:1, //13px
-    lg:1.0769, //14px
-    xl:1.2308 ,//16px
-);
 
 @each $sizeKey,$size in $font-sizes {
     .fs-#{$sizeKey}{
@@ -72,13 +54,10 @@ $font-sizes:(
 .flex-column{
     flex-direction: column;
 }
-$flex-jc:(
-    start:flex-start,
-    end:flex-end,
-    center:center,
-    between:space-between,
-    around:space-around
-);
+
+.flex-wrap{
+    flex-wrap: wrap;
+}
 
 @each $key,$value in $flex-jc {
     .jc-#{$key}{
@@ -86,12 +65,6 @@ $flex-jc:(
     }
 }
 
-$flex-ai:(
-    start:flex-start,
-    end:flex-end,
-    center:center,
-    stretch:stretch
-);
 @each $key,$value in $flex-ai {
     .ai-#{$key}{
         align-items: $value;
@@ -105,29 +78,6 @@ $flex-ai:(
 }
 
 
-//spacing
-//0-5 
-//.mt-1 =>margin top
-
-$spacing-types:(
-    m:margin,
-    p:padding
-);
-$spacing-directions:(
-    t:top,
-    l:left,
-    r:right,
-    b:bottom
-);
-$spacing-base-size:1rem;
-$spacing-sizes:(
-    0:0,
-    1:0.25,
-    2:0.5,
-    3:1,
-    4:1.5,
-    5:3
-);
 
 @each $typeKey,$type in $spacing-types {
     //.m-1
@@ -178,6 +128,94 @@ $spacing-sizes:(
         &.active{
             border-bottom: 3px solid #fff;
         }
+    }
+    
+}
+
+// width height 
+
+.w-100{
+    width: 100%;
+}
+.h-100{
+    height: 100%;
+}
+
+// sprite
+.sprite{
+    background: url(../images//index.png) no-repeat 0 0;
+    background-size: 28.8462rem;
+    display: inline-block;
+    &.sprite-news{
+        width: 1.7692rem;
+        height: 1.5385rem;
+        background-position: 63.546% 15.517%;
+    }
+    &.sprite-arrow{
+        width: 0.7692rem;
+        height: 0.7692rem;
+        background-position: 38.577% 52.076%;
+    }
+    &.sprite-gsz{
+        width: 1.7692rem;
+        height: 1.5385rem;
+        background-position: 90.483% 15.614%;
+    }
+    &.sprite-zbsc{
+        width: 1.4615rem;
+        height: 1.6923rem;
+        background-position: 36.746% 0.924%;
+    }
+    &.sprite-tyf{
+        width: 1.5385rem;
+        height: 1.5385rem;
+        background-position: 10.408% 15.517%;
+    }
+    &.sprite-xrzq{
+        width: 1.5385rem;
+        height: 1.6154rem;
+        background-position: 89.733% 1.266%;
+    }
+    &.sprite-rycc{
+        width: 1.8462rem;
+        height: 1.5385rem;
+        background-position: 36.467% 15.287%;
+    }
+    &.sprite-wzyd{
+        width: 1.8462rem;
+        height: 1.8462rem;
+        background-position: 63.3% 0.927%;
+    }
+    &.sprite-gzh{
+        width: 1.8462rem;
+        height: 1.5385rem;
+        background-position: 0 96.207%;
+    }
+    &.sprite-bbjs{
+        background: url(../images/version-icon.png) no-repeat 0 0;
+        width: 1.8462rem;
+        height: 1.8462rem;
+        background-size: 1.9231rem;
+        background-position:  33.333% 33.333%;
+    }
+    &.sprite-djhj{
+        background: url(../images/djhj.png) no-repeat 0 0;
+        width: 2.6154rem;
+        height: 1.6154rem;
+        background-size: 2.6154rem 1.6154rem;
+    }
+    &.sprite-wxwzt{
+        background: url(../images/wxwzt.png) no-repeat 0 0;
+        width: 2.4615rem;
+        height: 0.6923rem;
+        background-size: 2.4615rem 0.6923rem;
+    }
+    &.sprite-cyhdy{
+        background: url(../images/cyhdy.png) no-repeat 0 0;
+        width: 3.2308rem;
+        height: 2.9231rem;
+        background-size: 3.6923rem;
+        background-position: 50% 50%;
     }
     
 }
