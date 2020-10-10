@@ -1,6 +1,5 @@
 <template>
 <div>
-
     <swiper :options="swiperOptions">
         <swiper-slide>
             <img class="w-100" src="../assets/images/79860d923bba914ecf7e328bf366894a.jpeg" alt="banner">
@@ -25,8 +24,45 @@
             <i class="sprite sprite-arrow mr-1"></i>
             <span>收起</span>
         </div>
-
     </div>
+    <!--end of nav icons-->
+
+    <m-card icon="cc-menu-circle" title="新闻资讯">
+        <div class="card-body pt-3">
+            <div class="nav jc-between">
+                <div class="nav-item active">
+                    <div class="nav-link">热门</div>
+                </div>
+                <div class="nav-item">
+                    <div class="nav-link">热门</div>
+                </div>
+                <div class="nav-item">
+                    <div class="nav-link">热门</div>
+                </div>
+                <div class="nav-item">
+                    <div class="nav-link">热门</div>
+                </div>
+                <div class="nav-item">
+                    <div class="nav-link">热门</div>
+                </div>
+            </div>
+            <div class="pt-2">
+                <swiper>
+                    <swiper-slide v-for="(item2,index2) in 5" :key="index2">
+                        <div class="py-2" v-for="(item,index) in 5" :key="index">
+                            <span>[新闻]</span>
+                            <span>|</span>
+                            <span>“一”启幸运活动开启，概率得永久史诗皮肤</span>
+                            <span>06/02</span>
+                        </div>
+                    </swiper-slide>
+                </swiper>
+            </div>
+        </div>
+    </m-card>
+    <m-card icon="card-hero" title="英雄列表">
+    </m-card>
+
 </div>
 </template>
 

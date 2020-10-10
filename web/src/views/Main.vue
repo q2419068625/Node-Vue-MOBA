@@ -10,7 +10,7 @@
     </div>
 
     <div class="bg-primary pt-3 pb-2">
-        <div class="nav d-flex text-white jc-around pd-1">
+        <div class="nav  nav-inverse jc-around pd-1">
             <div class="nav-item active">
                 <router-link to="/" class="nav-link" tag="div">首页</router-link>
             </div>
