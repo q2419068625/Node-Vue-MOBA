@@ -77,6 +77,9 @@ a{
     flex-grow: 1;
 }
 
+p{
+    line-height: 1.5rem;
+}
 
 
 @each $typeKey,$type in $spacing-types {
@@ -238,4 +241,11 @@ a{
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+//borders
+@each $dir in (top,right,bottom,left) {
+    .border-#{$dir}{
+        border-#{$dir}:1px solid $border-color;
+    }
 }

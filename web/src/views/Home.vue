@@ -29,12 +29,12 @@
 
     <m-list-card icon="cc-menu-circle" title="新闻资讯" :categories="newsCats">
         <template #items="{category}">
-            <div class="py-2 fs-lg d-flex" v-for="(item,index) in category.newsList" :key="index">
+            <router-link tag="div" :to="`/articles/${item._id}`" class="py-2 fs-lg d-flex" v-for="(item,index) in category.newsList" :key="index">
                 <span class="text-info">[{{item.categoryName}}]</span>
                 <span class="px-2">|</span>
                 <span class="flex-1 text-dark-1 text-ellipsis pr-2">{{item.title}}</span>
                 <span class="text-grey-1 fs-sm">{{item.createdAt | date}}</span>
-            </div>
+            </router-link>
         </template>
 
     </m-list-card>
