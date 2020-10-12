@@ -27,47 +27,41 @@
     </div>
     <!--end of nav icons-->
 
-    <m-card icon="cc-menu-circle" title="新闻资讯">
-        <div class="card-body pt-3">
-            <div class="nav jc-between">
-                <div class="nav-item active">
-                    <div class="nav-link">热门</div>
-                </div>
-                <div class="nav-item">
-                    <div class="nav-link">热门</div>
-                </div>
-                <div class="nav-item">
-                    <div class="nav-link">热门</div>
-                </div>
-                <div class="nav-item">
-                    <div class="nav-link">热门</div>
-                </div>
-                <div class="nav-item">
-                    <div class="nav-link">热门</div>
-                </div>
+    <m-list-card icon="cc-menu-circle" title="新闻资讯" :categories="newsCats">
+        <template #items="{category}">
+            <div class="py-2 fs-lg d-flex" v-for="(item,index) in category.newsList" :key="index">
+                <span class="text-info">[{{item.categoryName}}]</span>
+                <span class="px-2">|</span>
+                <span class="flex-1 text-dark-1 text-ellipsis pr-2">{{item.title}}</span>
+                <span class="text-grey-1 fs-sm">{{item.createdAt | date}}</span>
             </div>
-            <div class="pt-2">
-                <swiper>
-                    <swiper-slide v-for="(item2,index2) in 5" :key="index2">
-                        <div class="py-2" v-for="(item,index) in 5" :key="index">
-                            <span>[新闻]</span>
-                            <span>|</span>
-                            <span>“一”启幸运活动开启，概率得永久史诗皮肤</span>
-                            <span>06/02</span>
-                        </div>
-                    </swiper-slide>
-                </swiper>
-            </div>
-        </div>
-    </m-card>
-    <m-card icon="card-hero" title="英雄列表">
-    </m-card>
+        </template>
 
+    </m-list-card>
+
+    <m-list-card icon="card-hero" title="英雄列表" :categories="heroCats">
+        <template #items="{category}">
+            <div class="d-flex flex-wrap" style="margin:0 -0.5rem;">
+                <div class="p-2 text-center" style="width:20%;" v-for="(item,index) in category.heroList" :key="index">
+                    <img :src="item.avatar" class="w-100">
+                    <div>{{item.name}}</div>
+                </div>
+            </div>
+        </template>
+
+    </m-list-card>
 </div>
 </template>
 
 <script>
+import dayjs from 'dayjs'
+
 export default {
+    filters: {
+        date(val) {
+            return dayjs(val).format('MM/DD')
+        }
+    },
     data() {
         return {
             items: {
@@ -92,8 +86,27 @@ export default {
                     el: '.swiper-pagination'
                 },
                 // Some Swiper option/callback...
-            }
+            },
+            //新闻
+            newsCats: [],
+            //英雄
+            heroCats: []
+
         }
+    },
+    methods: {
+        async fetchNewsCats() {
+            const res = await this.$axios.get('news/list')
+            this.newsCats = res.data
+        },
+        async fetchHeroesCats() {
+            const res = await this.$axios.get('heroes/list')
+            this.heroCats = res.data
+        }
+    },
+    created() {
+        this.fetchNewsCats(),
+            this.fetchHeroesCats()
     },
 }
 </script>
