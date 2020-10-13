@@ -6,6 +6,20 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "5743068",
+      "name": "video",
+      "font_class": "video",
+      "unicode": "e63a",
+      "unicode_decimal": 58938
+    },
+    {
+      "icon_id": "17426742",
+      "name": "图 片",
+      "font_class": "tupian",
+      "unicode": "e82c",
+      "unicode_decimal": 59436
+    },
+    {
       "icon_id": "372210",
       "name": "cc-menu-circle",
       "font_class": "cc-menu-circle",
